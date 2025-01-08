@@ -7,6 +7,8 @@ import { Task } from '../../tasks/task.model';
 export class TasksService {
   private tasks = signal<Task[]>([]);
 
+  allTasks = this.tasks.asReadonly();
+
   addTask(taskData: {title: string; description: string}) {
     const newTask: Task = {
       ...taskData,
